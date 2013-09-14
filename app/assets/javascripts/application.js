@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require handlebars
 //= require ember
-//= require epf
+//= require ember-data
 //= require_self
 //= require etst
 
