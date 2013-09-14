@@ -39,3 +39,10 @@ Click "Save" -- the data is saved, BUT the "(dirty)" marker is still there.  Rel
 the page clears it.
 
 Nuts.
+
+#### Ember Data branch
+
+Just in case your response is, "Hey idiot, us Ember Data!" I've found the same problem
+using Ember Data.  See the "ember-data" branch here.
+
+Evidently I can screw up with any persistence framework :-)
