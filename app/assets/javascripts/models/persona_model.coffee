@@ -6,4 +6,4 @@ Etst.Persona = DS.Model.extend
   favorite_food: DS.attr 'string'
   isClean: ( ->
     ! @get("isDirty")
-  ).property("name", "age", "favorite_food")
+  ).property("isDirty")
