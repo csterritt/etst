@@ -16,7 +16,7 @@ I've added a property to the "Persona" Ember model (using coffeescript):
 So that the code can know if the data has been updated.
 
 To see the problem, run the following commands.  This is a Rails app, so you'll need to
-have Ruby (at least version 1.9.2) set up.
+have Ruby (at least version 1.9.3) set up.
 
 % bundle install
 
@@ -42,7 +42,16 @@ Nuts.
 
 #### Ember Data branch
 
-Just in case your response is, "Hey idiot, us Ember Data!" I've found the same problem
-using Ember Data.  See the "ember-data" branch here.
+### Fixed!
 
-Evidently I can screw up with any persistence framework :-)
+I had the same problem with Ember Data, but changed the Ember model to:
+
+        isClean: ( ->
+          ! @get("isDirty")
+        ).property("isDirty")
+
+This fixes the problem.
+
+### The Epf people say that they're working on a fix as well.
+
+I'll update as soon as it's out.
