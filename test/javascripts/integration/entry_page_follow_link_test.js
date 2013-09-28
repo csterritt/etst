@@ -46,7 +46,11 @@ test("it goes to the personas page's detail", function() {
         var links = find("a");
         click(links[0]).then(function() {
             equal(find("h4").text(), "Persona for Jack (clean)");
-            equal(find("input").length, 3);
+            var inputs = find("input");
+            equal(inputs.length, 3);
+            equal(inputs[0].value, "Jack");
+            equal(inputs[1].value, "32");
+            equal(inputs[2].value, "Spam");
         });
     });
 });
