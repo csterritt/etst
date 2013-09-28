@@ -4,7 +4,8 @@ each persona in controller
     ' Persona Name:
     linkTo "persona" persona.id
       = persona.name
-
+else
+  p No Personas!
 hr
 
 = outlet
