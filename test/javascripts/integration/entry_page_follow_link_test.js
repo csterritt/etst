@@ -1,6 +1,8 @@
 module("Entry Page Follow Link Test", {
     setup: function() {
-        Ember.run(function () { Etst.reset(); });
+        Ember.run(function() {
+            Etst.reset();
+        });
         Ember.testing = true;
 
         Ember.run(Etst, Etst.advanceReadiness);
@@ -27,15 +29,24 @@ module("Entry Page Follow Link Test", {
 });
 
 test("it goes to the personas page", function() {
-    var promise;
-    Ember.run(Etst, function() {
-        promise = visit("/personas");
-    });
-    promise.then(function() {
+    visit("/personas").then(function() {
         equal(find("h3").text(), "Current Personas:");
         var links = find("a");
         equal(links.length, 2);
         equal(links[0].text, "Jack");
         equal(links[1].text, "Jill");
+        exists(find("Jack"));
+        equal(find("h4").length, 0);
+        equal(find("input").length, 0);
+    });
+});
+
+test("it goes to the personas page's detail", function() {
+    visit("/personas").then(function() {
+        var links = find("a");
+        click(links[0]).then(function() {
+            equal(find("h4").text(), "Persona for Jack (clean)");
+            equal(find("input").length, 3);
+        });
     });
 });
