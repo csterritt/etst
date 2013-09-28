@@ -35,7 +35,6 @@ test("it goes to the personas page", function() {
         equal(links.length, 2);
         equal(links[0].text, "Jack");
         equal(links[1].text, "Jill");
-        exists(find("Jack"));
         equal(find("h4").length, 0);
         equal(find("input").length, 0);
     });
